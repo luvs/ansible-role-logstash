@@ -10,3 +10,7 @@ input {
 {% endif %}
   }
 }
+
+filter {
+  mutate { replace => { "[host]" => "[host][name]" } }
+}

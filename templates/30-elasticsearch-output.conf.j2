@@ -2,9 +2,9 @@ output {
   elasticsearch {
     hosts => {{ logstash_elasticsearch_hosts | to_json }}
     index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
-    {% if logstash_internal_user is defined %}
+{% if logstash_internal_user is defined %}
     user => "{{ logstash_internal_user }}"
     password => "{{ logstash_internal_password }}"
-    {% endif %}
+{% endif %}
   }
 }
